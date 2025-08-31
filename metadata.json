@@ -1,7 +1,5 @@
 {
-  "name": "Copy of GemBooth",
-  "description": "Try native image model effects with your webcam.",
-  "requestFramePermissions": [
-    "camera"
-  ]
+  "name": "Copy of AI Interior Designer",
+  "description": "An application that uses AI to redesign your room. Upload a photo of your space, choose a design style, and let the AI generate a new look for you.",
+  "requestFramePermissions": []
 }
