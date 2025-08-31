@@ -85,6 +85,17 @@ const App: React.FC = () => {
       setIsLoading(false);
     }
   };
+  
+  const handleDownloadImage = useCallback(() => {
+    if (!redesignedImageUrl) return;
+
+    const link = document.createElement('a');
+    link.href = redesignedImageUrl;
+    link.download = 'redesigned-room.jpeg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, [redesignedImageUrl]);
 
   const maskApiKey = (key: string) => {
     if (key.length < 8) return '****';
@@ -150,7 +161,7 @@ const App: React.FC = () => {
           {/* Result Column */}
           <div className="flex flex-col p-6 bg-slate-800/50 rounded-xl shadow-2xl border border-slate-700">
              <h3 className="text-lg font-semibold text-slate-300 mb-4">النتيجة</h3>
-             <ResultDisplay redesignedUrl={redesignedImageUrl} />
+             <ResultDisplay redesignedUrl={redesignedImageUrl} onDownload={handleDownloadImage} />
           </div>
         </main>
       </div>
